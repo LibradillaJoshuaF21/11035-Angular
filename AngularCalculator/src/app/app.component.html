@@ -1,0 +1,43 @@
+<div class="container">
+  <form>
+
+      <div class="mb-3">
+          <label class="form-label">First Number</label>
+          <input (input)="getNum1(num1.value)" type="text" class="form-control" id="firstNum" #num1>
+      </div>
+
+      <div class="mb-3">
+          <label class="form-label">Second Number</label>
+          <input (input)="getNum2(num2.value)" type="text" class="form-control" id="secondNum" #num2>
+      </div>
+
+      <div class="justify-content-center text-center">
+      <button 
+      (click)=addNum()
+      [disabled]="!(num1.value && num2.value)"
+      type="button" class="btn btn-outline-dark" id="addBtn">+</button>
+
+      <button 
+      (click)=subtractNum()
+      [disabled]="!(num1.value && num2.value)"
+      type="button" class="btn btn-outline-dark" id="minusBtn">-</button>
+
+      <button 
+      (click)=divideNum()
+      [disabled]="!(num1.value && num2.value)"
+      type="button" class="btn btn-outline-dark" id="divideBtn">/</button>
+
+      <button 
+      (click)=multiplyNum()
+      [disabled]="!(num1.value && num2.value)"
+      type="button" class="btn btn-outline-dark" id="multiplyBtn">*</button>
+
+      </div>
+
+      <div 
+      *ngIf="result"
+      class="justify-content-center text-center">
+          <h1 id="resultText">{{result}}</h1>
+      </div>
+
+  </form>
